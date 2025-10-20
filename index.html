@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EduProf AI - Personalized AI Education</title>
+  <link rel="stylesheet" href="css/components/images.css">
+  <link rel="stylesheet" href="css/components/card-nav.css">
+  <link rel="stylesheet" href="css/components/text-type.css">
+  <link rel="stylesheet" href="css/components/scroll-reveal.css">
+  <link rel="stylesheet" href="css/components/card-swap.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  
+  <!-- Card Nav 导航栏 -->
+  <div id="card-nav-container"></div>
+  
+  <section class="banner" id="hero">
+    <div class="banner-orb-bg" id="orbContainer"></div>
+    
+    <div class="container">
+      <div class="brand-logo">
+        <img src="images/logo_brand.jpg" alt="EduProf AI Logo" class="brand-logo-img">
+      </div>
+      
+      <h1>EduProf AI</h1>
+      <h2 id="typing-text" class="text-type"></h2>
+      
+      <div class="hero-buttons">
+        <a href="#features" class="btn-blue">Explore Features</a>
+        <a href="#about" class="btn-outline">Learn More</a>
+      </div>
+    </div>
+    
+    <div class="hero-showcase"></div>
+    
+    <div class="scroll-hint">Scroll down to discover more</div>
+  </section>
+
+  <div class="section" id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="scroll-reveal-title">Redefine the University Learning Experience</h2>
+        <p class="scroll-reveal-subtitle">A personal AI teaching assistant for every student</p>
+      </div>
+      
+      <div style="text-align: center; margin: 40px 0; max-width: 800px; margin-left: auto; margin-right: auto;">
+        <p class="scroll-reveal-description" style="font-size: 20px; line-height: 1.8;">
+          EduProf AI is a revolutionary AI learning companion built for university students and professors. It understands each professor’s teaching style, course content, and assessment methods to deliver genuinely personalized support—so every student gets a dedicated course assistant.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-dark" id="features">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="scroll-reveal-title">Core Features</h2>
+        <p class="scroll-reveal-subtitle">Four signature capabilities to accelerate your success</p>
+      </div>
+
+      <div style="display: flex; gap: 60px; margin-top: 150px;">
+        <div style="flex: 1; max-width: 500px; align-self: flex-start;">
+          <div class="scroll-reveal-description" style="font-size: 40px; font-weight: 600; color: #fff; margin-bottom: 20px; line-height: 1.4;">The first AI Agent tailored to university classrooms</div>
+          <div class="scroll-reveal-description" style="font-size: 18px; color: #3498db; font-weight: 500; letter-spacing: 2px;">Ready All the Time</div>
+        </div>
+        
+        <div style="flex: 1; position: relative;">
+          <div id="features-card-swap-root" style="min-height: 600px; position: relative; display: flex; justify-content: center; align-items: center; margin-top: 80px;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-dark" id="signup">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="scroll-reveal-title">Start Your EduProf AI Trial</h2>
+        <p class="scroll-reveal-subtitle">Leave your info to get a personalized AI learning assistant</p>
+      </div>
+      
+      <div style="max-width: 600px; margin: 0 auto; background: rgba(255, 255, 255, 0.1); padding: 40px; border-radius: 16px; backdrop-filter: blur(10px);">
+        <form id="signup-form" style="display: flex; flex-direction: column; gap: 20px;">
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label for="name" style="color: #fff; font-weight: 500; font-size: 16px;">Name *</label>
+            <input 
+              type="text" 
+              id="name" 
+              name="name" 
+              required 
+              placeholder="Enter your full name"
+              style="padding: 12px 16px; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 16px; outline: none; transition: border-color 0.3s ease;"
+            >
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label for="phone" style="color: #fff; font-weight: 500; font-size: 16px;">Phone *</label>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              required 
+              placeholder="Enter your phone number"
+              style="padding: 12px 16px; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 16px; outline: none; transition: border-color 0.3s ease;"
+            >
+          </div>
+          
+          <div style="display: flex; flex-direction: column; gap: 8px;">
+            <label for="email" style="color: #fff; font-weight: 500; font-size: 16px;">Email *</label>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              required 
+              placeholder="Enter your email address"
+              style="padding: 12px 16px; border: 2px solid rgba(255, 255, 255, 0.2); border-radius: 8px; background: rgba(255, 255, 255, 0.1); color: #fff; font-size: 16px; outline: none; transition: border-color 0.3s ease;"
+            >
+          </div>
+          
+          <button 
+            type="submit" 
+            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; padding: 16px 32px; border-radius: 8px; font-size: 18px; font-weight: 600; cursor: pointer; transition: transform 0.2s ease, box-shadow 0.2s ease; margin-top: 10px;"
+            onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 8px 25px rgba(102, 126, 234, 0.4)'"
+            onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none'"
+          >
+            Request Access
+          </button>
+        </form>
+        
+        <div style="text-align: center; margin-top: 20px;">
+          <p style="color: rgba(255, 255, 255, 0.7); font-size: 14px;">
+            We\'ll reach out within 24 hours to schedule your trial
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section section-dark" id="contact">
+    <div class="container">
+      <div class="section-title">
+        <h2 class="scroll-reveal-title">Contact Us</h2>
+        <p class="scroll-reveal-subtitle">Questions? We're here to help</p>
+      </div>
+      
+      <div style="text-align: center;">
+        <p style="font-size: 18px; margin-bottom: 10px;">📧 Email: contact@eduprof.ai</p>
+        <p style="font-size: 18px; margin-bottom: 10px;">💬 Support: support@eduprof.ai</p>
+        <p style="font-size: 18px; margin-bottom: 30px;">🌐 Website: www.eduprof.ai</p>
+        
+        <div style="margin-top: 30px;">
+          <a href="#" class="btn-blue">Book a Demo</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="container">
+      
+      
+      <p>&copy; 2025 EduProf AI. All rights reserved.</p>
+      <p style="margin-top: 10px; font-size: 16px;">Building the Bridge Between Teachers and Students</p>
+      <div style="margin-top: 20px;">
+        <a href="#about">About</a>
+        <a href="#features">Features</a>
+        <a href="#contact">Contact</a>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/card-nav.js?v=2"></script>
+  <script src="js/text-type.js"></script>
+  <script src="js/scroll-reveal.js"></script>
+  <script src="js/orb-simple.js"></script>
+  <script type="text/babel">
+    const { forwardRef, Children, cloneElement, isValidElement, useEffect, useMemo, useRef } = React;
+    
+    // Card Component
+    const Card = forwardRef(({ customClass, ...rest }, ref) => (
+      React.createElement('div', {
+        ref: ref,
+        ...rest,
+        className: `card ${customClass ?? ''} ${rest.className ?? ''}`.trim()
+      })
+    ));
+    Card.displayName = 'Card';
+
+    // CardSwap Component
+    const makeSlot = (i, distX, distY, total) => ({
+      x: i * distX,
+      y: -i * distY,
+      z: -i * distX * 1.5,
+      zIndex: total - i
+    });
+
+    const placeNow = (el, slot, skew) =>
+      gsap.set(el, {
+        x: slot.x,
+        y: slot.y,
+        z: slot.z,
+        xPercent: -50,
+        yPercent: -50,
+        skewY: skew,
+        transformOrigin: 'center center',
+        zIndex: slot.zIndex,
+        force3D: true
+      });
+
+    const CardSwap = ({
+      width = 500,
+      height = 400,
+      cardDistance = 60,
+      verticalDistance = 70,
+      delay = 5000,
+      pauseOnHover = false,
+      onCardClick,
+      skewAmount = 6,
+      easing = 'elastic',
+      children
+    }) => {
+      const config =
+        easing === 'elastic'
+          ? {
+              ease: 'elastic.out(0.6,0.9)',
+              durDrop: 2,
+              durMove: 2,
+              durReturn: 2,
+              promoteOverlap: 0.9,
+              returnDelay: 0.05
+            }
+          : {
+              ease: 'power1.inOut',
+              durDrop: 0.8,
+              durMove: 0.8,
+              durReturn: 0.8,
+              promoteOverlap: 0.45,
+              returnDelay: 0.2
+            };
+
+      const childArr = useMemo(() => Children.toArray(children), [children]);
+      const refs = useMemo(
+        () => childArr.map(() => React.createRef()),
+        [childArr.length]
+      );
+
+      const order = useRef(Array.from({ length: childArr.length }, (_, i) => i));
+
+      const tlRef = useRef(null);
+      const intervalRef = useRef();
+      const container = useRef(null);
+
+      useEffect(() => {
+        const total = refs.length;
+        refs.forEach((r, i) => placeNow(r.current, makeSlot(i, cardDistance, verticalDistance, total), skewAmount));
+
+        const swap = () => {
+          if (order.current.length < 2) return;
+
+          const [front, ...rest] = order.current;
+          const elFront = refs[front].current;
+          const tl = gsap.timeline();
+          tlRef.current = tl;
+
+          tl.to(elFront, {
+            y: '+=500',
+            duration: config.durDrop,
+            ease: config.ease
+          });
+
+          tl.addLabel('promote', `-=${config.durDrop * config.promoteOverlap}`);
+          rest.forEach((idx, i) => {
+            const el = refs[idx].current;
+            const slot = makeSlot(i, cardDistance, verticalDistance, refs.length);
+            tl.set(el, { zIndex: slot.zIndex }, 'promote');
+            tl.to(
+              el,
+              {
+                x: slot.x,
+                y: slot.y,
+                z: slot.z,
+                duration: config.durMove,
+                ease: config.ease
+              },
+              `promote+=${i * 0.15}`
+            );
+          });
+
+          const backSlot = makeSlot(refs.length - 1, cardDistance, verticalDistance, refs.length);
+          tl.addLabel('return', `promote+=${config.durMove * config.returnDelay}`);
+          tl.call(
+            () => {
+              gsap.set(elFront, { zIndex: backSlot.zIndex });
+            },
+            undefined,
+            'return'
+          );
+          tl.to(
+            elFront,
+            {
+              x: backSlot.x,
+              y: backSlot.y,
+              z: backSlot.z,
+              duration: config.durReturn,
+              ease: config.ease
+            },
+            'return'
+          );
+
+          tl.call(() => {
+            order.current = [...rest, front];
+          });
+        };
+
+        swap();
+        intervalRef.current = window.setInterval(swap, delay);
+
+        if (pauseOnHover) {
+          const node = container.current;
+          const pause = () => {
+            tlRef.current?.pause();
+            clearInterval(intervalRef.current);
+          };
+          const resume = () => {
+            tlRef.current?.play();
+            intervalRef.current = window.setInterval(swap, delay);
+          };
+          node.addEventListener('mouseenter', pause);
+          node.addEventListener('mouseleave', resume);
+          return () => {
+            node.removeEventListener('mouseenter', pause);
+            node.removeEventListener('mouseleave', resume);
+            clearInterval(intervalRef.current);
+          };
+        }
+        return () => clearInterval(intervalRef.current);
+      }, [cardDistance, verticalDistance, delay, pauseOnHover, skewAmount, easing]);
+
+      const rendered = childArr.map((child, i) =>
+        isValidElement(child)
+          ? cloneElement(child, {
+              key: i,
+              ref: refs[i],
+              style: { width, height, ...(child.props.style ?? {}) },
+              onClick: e => {
+                child.props.onClick?.(e);
+                onCardClick?.(i);
+              }
+            })
+          : child
+      );
+
+      return React.createElement(
+        'div',
+        { ref: container, className: 'card-swap-container', style: { width, height } },
+        rendered
+      );
+    };
+
+    // FeaturesCardSwap Component
+    const FeaturesCardSwap = () => {
+      return React.createElement(
+        'div',
+        { style: { height: '600px', position: 'relative' } },
+          React.createElement(
+            CardSwap,
+            {
+              width: 600,
+              height: 450,
+              cardDistance: 80,
+              verticalDistance: 90,
+              delay: 2000,
+              pauseOnHover: true,
+              skewAmount: 6,
+              easing: 'elastic'
+            },
+          React.createElement(
+            Card,
+            null,
+            React.createElement('h3', null, 'Course Personalization'),
+            React.createElement('p', null, 'Deep alignment to each professor\'s course, teaching style, and assessment requirements')
+          ),
+          React.createElement(
+            Card,
+            null,
+            React.createElement('h3', null, 'Accurate Past Paper Forecasting'),
+            React.createElement('p', null, 'Data-driven predictions for exam formats and key topics')
+          ),
+          React.createElement(
+            Card,
+            null,
+            React.createElement('h3', null, 'Real-time Feedback & Assessment'),
+            React.createElement('p', null, 'Track progress instantly, detect weak spots, and get targeted guidance')
+          ),
+          React.createElement(
+            Card,
+            null,
+            React.createElement('h3', null, 'Personal Course TA-level AI Agent'),
+            React.createElement('p', null, '24/7 guidance, deep course understanding, and professional-level support')
+          )
+        )
+      );
+    };
+
+    window.CardSwap = CardSwap;
+    window.Card = Card;
+    window.FeaturesCardSwap = FeaturesCardSwap;
+    
+    setTimeout(() => {
+      if (window.FeaturesCardSwap) {
+        initCardSwap();
+      }
+    }, 100);
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      initCardNav();
+      initTextTyping();
+      initScrollReveal();
+      initSignupForm();
+      
+      const orbContainer = document.getElementById('orbContainer');
+      if (!orbContainer) return;
+      
+      if (typeof window.SimpleOrb === 'undefined') {
+        orbContainer.style.background = 'radial-gradient(circle, rgba(156,67,254,0.8) 0%, rgba(76,194,233,0.6) 50%, rgba(16,20,153,0.4) 100%)';
+        return;
+      }
+      
+      try {
+        const orb = new SimpleOrb(orbContainer, {
+          hue: 266,
+          hoverIntensity: 3.91,
+          rotateOnHover: true,
+          forceHoverState: false
+        });
+        
+        window.eduProfOrb = orb;
+        enhanceScrollExperience();
+      } catch (error) {
+        orbContainer.style.background = 'radial-gradient(circle, rgba(156,67,254,0.8) 0%, rgba(76,194,233,0.6) 50%, rgba(16,20,153,0.4) 100%)';
+      }
+    });
+    
+    function enhanceScrollExperience() {
+      const scrollHint = document.querySelector('.scroll-hint');
+      let hintVisible = true;
+      
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset;
+        
+        if (scrollTop > 100 && hintVisible) {
+          scrollHint.style.opacity = '0';
+          scrollHint.style.transform = 'translateX(-50%) translateY(20px)';
+          hintVisible = false;
+        } else if (scrollTop <= 100 && !hintVisible) {
+          scrollHint.style.opacity = '0.7';
+          scrollHint.style.transform = 'translateX(-50%) translateY(0)';
+          hintVisible = true;
+        }
+      });
+      
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute('href'));
+          if (target) {
+            target.scrollIntoView({
+              behavior: 'smooth',
+              block: 'start'
+            });
+          }
+        });
+      });
+      
+      createScrollProgress();
+    }
+    
+    function createScrollProgress() {
+      const progressBar = document.createElement('div');
+      progressBar.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 0%;
+        height: 3px;
+        background: linear-gradient(90deg, #667eea, #764ba2);
+        z-index: 1000;
+        transition: width 0.1s ease;
+      `;
+      document.body.appendChild(progressBar);
+      
+      window.addEventListener('scroll', function() {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollPercent = (scrollTop / docHeight) * 100;
+        progressBar.style.width = scrollPercent + '%';
+      });
+    }
+    
+    function initTextTyping() {
+      const typingElement = document.getElementById('typing-text');
+      if (typingElement && window.TextType) {
+        window.textTypeInstance = new TextType(typingElement, {
+          text: [
+            "Building Gap Between Teachers and Students",
+            "Construire l'Écart Entre Enseignants et Étudiants",
+            "让每位学生都有专属的AI助教",
+            "Construyendo la Brecha Entre Profesores y Estudiantes",
+            "بناء الفجوة بين المعلمين والطلاب",
+            "Построение Разрыва Между Учителями и Учениками",
+            "Die Kluft zwischen Lehrern und Schülern bauen",
+            "教師と学生の間の隔たりを築く"
+          ],
+          typingSpeed: 75,
+          pauseDuration: 1500,
+          deletingSpeed: 30,
+          showCursor: true,
+          cursorCharacter: "|",
+          loop: true
+        });
+      }
+    }
+    
+    function initScrollReveal() {
+      if (!window.ScrollReveal) return;
+      
+      const titleElements = document.querySelectorAll('.scroll-reveal-title');
+      titleElements.forEach((titleElement) => {
+        new ScrollReveal(titleElement, {
+          baseOpacity: 0.1,
+          enableBlur: true,
+          baseRotation: 3,
+          blurStrength: 4,
+          rotationEnd: 'top top+=500px',
+          wordAnimationEnd: 'top top+=500px'
+        });
+      });
+      
+      const subtitleElements = document.querySelectorAll('.scroll-reveal-subtitle');
+      subtitleElements.forEach((subtitleElement) => {
+        new ScrollReveal(subtitleElement, {
+          baseOpacity: 0.1,
+          enableBlur: true,
+          baseRotation: 3,
+          blurStrength: 4,
+          rotationEnd: 'top top+=500px',
+          wordAnimationEnd: 'top top+=500px'
+        });
+      });
+      
+      const descriptionElement = document.querySelector('.scroll-reveal-description');
+      if (descriptionElement) {
+        new ScrollReveal(descriptionElement, {
+          baseOpacity: 0.1,
+          enableBlur: true,
+          baseRotation: 3,
+          blurStrength: 4,
+          rotationEnd: 'top top+=500px',
+          wordAnimationEnd: 'top top+=500px'
+        });
+      }
+    }
+    
+    function initCardSwap() {
+      const root = document.getElementById('features-card-swap-root');
+      
+      if (root && window.FeaturesCardSwap && window.ReactDOM) {
+        try {
+          root.innerHTML = '';
+          const container = ReactDOM.createRoot(root);
+          container.render(React.createElement(window.FeaturesCardSwap));
+        } catch (error) {
+          // Silent error handling
+        }
+      } else if (!window.FeaturesCardSwap) {
+        setTimeout(initCardSwap, 200);
+      }
+    }
+    
+    function initCardNav() {
+      const navItems = [
+        {
+          label: "产品功能",
+          bgColor: "#0D0716",
+          textColor: "#fff",
+          links: [
+            { label: "精准课程定制", href: "#features", ariaLabel: "精准课程定制功能" },
+            { label: "真题预测", href: "#features", ariaLabel: "真题预测功能" },
+            { label: "实时评测", href: "#features", ariaLabel: "实时学习评测" },
+            { label: "AI助教", href: "#features", ariaLabel: "私人课程助教级AI Agent" }
+          ]
+        },
+        {
+          label: "关于我们", 
+          bgColor: "#170D27",
+          textColor: "#fff",
+          links: [
+            { label: "公司介绍", href: "#about", ariaLabel: "关于EduProf AI" },
+            { label: "团队介绍", href: "#about", ariaLabel: "我们的团队" },
+            { label: "发展历程", href: "#about", ariaLabel: "公司发展历程" }
+          ]
+        },
+        {
+          label: "联系我们",
+          bgColor: "#271E37", 
+          textColor: "#fff",
+          links: [
+            { label: "邮箱联系", href: "mailto:contact@eduprof.ai", ariaLabel: "发送邮件联系我们" },
+            { label: "微信客服", href: "#contact", ariaLabel: "微信客服咨询" },
+            { label: "在线客服", href: "#contact", ariaLabel: "在线客服支持" }
+          ]
+        }
+      ];
+
+      const cardNavContainer = document.getElementById('card-nav-container');
+      if (cardNavContainer && window.CardNav) {
+        window.cardNavInstance = new CardNav({
+          items: navItems,
+          baseColor: 'rgba(255, 255, 255, 0.1)',
+          menuColor: '#fff',
+          buttonBgColor: 'rgba(255, 255, 255, 0.9)',
+          buttonTextColor: '#000',
+          ease: 'power3.out',
+          container: cardNavContainer
+        });
+      }
+    }
+    
+    function initSignupForm() {
+      const form = document.getElementById('signup-form');
+      if (!form) return;
+      
+      const inputs = form.querySelectorAll('input');
+      inputs.forEach(input => {
+        input.addEventListener('focus', function() {
+          this.style.borderColor = '#667eea';
+          this.style.backgroundColor = 'rgba(255, 255, 255, 0.15)';
+        });
+        
+        input.addEventListener('blur', function() {
+          this.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+          this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        });
+      });
+      
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+        const email = formData.get('email');
+        
+        if (!name || !phone || !email) {
+          alert('请填写所有必填字段');
+          return;
+        }
+        
+        const phoneRegex = /^1[3-9]\d{9}$/;
+        if (!phoneRegex.test(phone)) {
+          alert('请输入正确的手机号码');
+          return;
+        }
+        
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+          alert('请输入正确的邮箱地址');
+          return;
+        }
+        
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalText = submitButton.textContent;
+        
+        submitButton.textContent = '提交中...';
+        submitButton.disabled = true;
+        
+        setTimeout(() => {
+          submitButton.textContent = '提交成功！';
+          submitButton.style.background = 'linear-gradient(135deg, #2ecc71 0%, #27ae60 100%)';
+          
+          const successMessage = document.createElement('div');
+          successMessage.style.cssText = `
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+          `;
+          successMessage.innerHTML = `
+            <h3 style="margin: 0 0 15px 0; color: #2ecc71;">✅ 提交成功！</h3>
+            <p style="margin: 0 0 20px 0;">感谢您的申请，我们将在24小时内联系您</p>
+            <button onclick="this.parentElement.remove()" style="background: #667eea; color: white; border: none; padding: 10px 20px; border-radius: 6px; cursor: pointer;">确定</button>
+          `;
+          document.body.appendChild(successMessage);
+          
+          setTimeout(() => {
+            form.reset();
+            submitButton.textContent = originalText;
+            submitButton.disabled = false;
+            submitButton.style.background = 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)';
+          }, 2000);
+        }, 1500);
+      });
+    }
+  </script>
+
+</body>
+</html>
+

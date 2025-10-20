@@ -1,0 +1,248 @@
+/* 图片组件样式 */
+
+/* 品牌 Logo 样式 */
+.brand-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.brand-logo-img {
+  max-width: 300px;
+  max-height: 120px;
+  width: auto;
+  height: auto;
+  filter: brightness(1.1) contrast(1.1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.brand-logo-img:hover {
+  transform: scale(1.05);
+  filter: brightness(1.2) contrast(1.2);
+}
+
+/* Hero 区域功能展示图 */
+.hero-showcase {
+  position: absolute;
+  right: 5%;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  max-width: 500px;
+  width: 40%;
+}
+
+.showcase-img {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  border-radius: 20px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: brightness(1.05) contrast(1.05);
+}
+
+.showcase-img:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+}
+
+/* 页脚应用 Logo 和下载区域 */
+.footer-app-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  margin-bottom: 30px;
+  padding: 30px;
+  background: rgba(255,255,255,0.02);
+  border-radius: 15px;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
+.app-logo {
+  width: 120px;
+  height: 120px;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  filter: brightness(1.1);
+}
+
+.app-logo:hover {
+  transform: scale(1.1) rotate(5deg);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+}
+
+.app-download-links {
+  text-align: center;
+}
+
+.app-download-links h3 {
+  color: #ffffff;
+  margin-bottom: 10px;
+  font-size: 24px;
+}
+
+.app-download-links p {
+  color: #cccccc;
+  margin-bottom: 20px;
+  font-size: 16px;
+}
+
+.download-buttons {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+.download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.ios-btn {
+  background: linear-gradient(135deg, #007AFF, #5856D6);
+  color: white;
+}
+
+.ios-btn:hover {
+  background: linear-gradient(135deg, #0056CC, #4C3CC9);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,122,255,0.3);
+}
+
+.android-btn {
+  background: linear-gradient(135deg, #34A853, #4285F4);
+  color: white;
+}
+
+.android-btn:hover {
+  background: linear-gradient(135deg, #2D8F47, #3367D6);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52,168,83,0.3);
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .hero-showcase {
+    right: 3%;
+    width: 35%;
+  }
+  
+  .showcase-img {
+    max-width: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* 移动端隐藏功能展示图 */
+  .hero-showcase {
+    display: none;
+  }
+  
+  /* 品牌 Logo 调整 */
+  .brand-logo-img {
+    max-width: 250px;
+    max-height: 100px;
+  }
+  
+  /* 页脚应用区域调整为垂直布局 */
+  .footer-app-section {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .app-logo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .download-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .download-btn {
+    width: 200px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-logo-img {
+    max-width: 200px;
+    max-height: 80px;
+  }
+  
+  .app-download-links h3 {
+    font-size: 20px;
+  }
+  
+  .download-btn {
+    width: 180px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+
+/* 图片加载优化 */
+.brand-logo-img,
+.showcase-img,
+.app-logo {
+  opacity: 0;
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.brand-logo-img {
+  animation-delay: 0.2s;
+}
+
+.showcase-img {
+  animation-delay: 0.4s;
+}
+
+.app-logo {
+  animation-delay: 0.1s;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 图片错误处理 */
+.brand-logo-img:not([src]),
+.showcase-img:not([src]),
+.app-logo:not([src]) {
+  display: none;
+}
+
+/* 图片占位符样式 */
+.brand-logo-img[src=""],
+.showcase-img[src=""],
+.app-logo[src=""] {
+  display: none;
+}
+
+/* 透明背景图片优化 */
+.brand-logo-img[src*="transparent"],
+.app-logo[src*="transparent"] {
+  background: rgba(255,255,255,0.05);
+  border-radius: 10px;
+  padding: 10px;
+}
