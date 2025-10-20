@@ -1,0 +1,114 @@
+@import url("https://fonts.googleapis.com/css?family=Lora:400,700|Roboto:300,400,700");
+@import url("components/container.css");
+@import url("components/avatar.css");
+@import url("components/banner.css");
+@import url("components/button.css");
+@import url("components/card.css");
+
+body {
+  font-family: 'Lora', serif;
+  font-size: 18px;
+  margin: 0px;
+  padding: 0px;
+  color: #ffffff;
+  background-color: #000000;
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+h1, h2, h3 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+a {
+  text-decoration: none;
+  color: #3498db;
+}
+
+a:hover {
+  color: #2980b9;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.section {
+  padding: 200px 0;
+  min-height: 80vh;
+}
+
+.section#about {
+  padding-bottom: 160px;
+  min-height: auto;
+}
+
+.section#features {
+  padding-top: 80px;
+}
+
+.section#signup {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.section-dark {
+  background-color: #000000;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 36px;
+  color: #ffffff;
+}
+
+.section-title p {
+  font-size: 20px;
+  color: #cccccc;
+}
+
+footer {
+  background-color: #000000;
+  color: white;
+  padding: 5px 0;
+  text-align: center;
+}
+
+footer p {
+  margin: 10px 0;
+  opacity: 0.8;
+}
+
+footer a {
+  color: white;
+  margin: 0 10px;
+}
+
+footer a:hover {
+  opacity: 0.8;
+}
+

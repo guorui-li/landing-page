@@ -1,0 +1,52 @@
+/* Button component */
+.btn-blue {
+  background-color: #3498db;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-blue:hover {
+  background-color: #2980b9;
+  color: white;
+}
+
+.btn-primary {
+  background-color: #e74c3c;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background-color: #c0392b;
+  color: white;
+}
+
+.btn-secondary {
+  background-color: #95a5a6;
+  color: white;
+  padding: 15px 30px;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  display: inline-block;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-secondary:hover {
+  background-color: #7f8c8d;
+  color: white;
+}
+

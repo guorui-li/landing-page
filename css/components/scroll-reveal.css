@@ -1,0 +1,30 @@
+/* ScrollReveal 滚动显示效果样式 */
+
+.scroll-reveal {
+  margin: 20px 0;
+  will-change: transform;
+  transform-style: preserve-3d;
+}
+
+.scroll-reveal-text {
+  font-size: clamp(1.6rem, 4vw, 3rem);
+  line-height: 1.5;
+  font-weight: 600;
+}
+
+.scroll-reveal .word {
+  display: inline-block;
+  will-change: opacity, filter, transform;
+  backface-visibility: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform-style: preserve-3d;
+}
+
+/* 为中文字符添加更自然的间距 */
+.scroll-reveal-title .word,
+.scroll-reveal-subtitle .word,
+.scroll-reveal-description .word {
+  margin-right: 0.05em;
+}
+
